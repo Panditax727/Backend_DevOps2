@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  backend:
+    image: panditax727/backend-devops2:latest
+    container_name: backend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_PORT: 3306
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge
