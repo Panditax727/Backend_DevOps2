@@ -32,6 +32,9 @@ jobs:
           host: ${{ secrets.EC2_BACKEND_IP }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
+          proxy_host: ${{ secrets.EC2_FRONTEND_IP }}
+          proxy_username: ubuntu
+          proxy_key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             docker pull panditax727/backend-devops2:latest
             docker stop backend || true
